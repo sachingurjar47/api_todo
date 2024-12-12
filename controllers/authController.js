@@ -22,7 +22,6 @@ exports.login = async (req, res) => {
     const { _id, name } = user;  // Separate destructuring
     const token = jwt.sign({ id: _id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRY });
 
-    res.setHeader('Authorization', `Bearer ${token}`);
     res.json({
       user: {
         id: _id,
